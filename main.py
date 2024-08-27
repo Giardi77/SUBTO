@@ -1,9 +1,5 @@
-import EndpointTester
-import SubdomainEnum
-import argparse
-import Database
 from random_word import RandomWords
-
+import argparse
 
 
 parser = argparse.ArgumentParser(
@@ -64,4 +60,9 @@ def main() -> None:
             Database.GetScanResults(args.scan_result)
 
 if __name__ == '__main__':
+    import EndpointTester
+    import SubdomainEnum
+    import Database
+
+
     main()
