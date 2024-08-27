@@ -36,7 +36,7 @@ def main() -> None:
 
     if AuthenticationResult:
         if targets:
-            SubDomainsWithDups = SubdomainEnum.runScan(targets)
+            SubDomainsWithDups = SubdomainEnum.runScan(targets, ScanName)
             SubDomains = list(set(SubDomainsWithDups))
             TestedSubs = []
 
@@ -54,6 +54,8 @@ def main() -> None:
                     vuln = Tested[1]['vulnerable']
 
                 Database.RegisterScanResult(ScanId, Tested[2], fing, vuln)
+            
+            print(f'Scan Successull, results saved in database with ID: {ScanId}')
         
         if args.list_scan:
             Database.GetUserScans(username)

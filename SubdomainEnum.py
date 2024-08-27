@@ -6,7 +6,7 @@ import logging
 import bbot
 
 #Disable logging info in terminal
-logging.getLogger('bbot').setLevel(logging.NOTSET)
+logging.getLogger('bbot').setLevel(0)
 
 def GetSDEModules() -> list[str]:
     '''
@@ -29,22 +29,23 @@ def GetSDEModules() -> list[str]:
         exit(1)
 
 
-def getScanner(targets) -> bbot.scanner.Scanner :
+def getScanner(targets, name) -> bbot.scanner.Scanner :
     '''
     Return the prepared scanner object.
     '''
-    SDScanner = bbot.scanner.Scanner(*targets, modules=GetSDEModules(), output_dir='./Scans')
+    SDScanner = bbot.scanner.Scanner(*targets, modules=GetSDEModules(), name=name)
     return SDScanner
     
 
-def runScan(targets) -> List[str]:
+def runScan(targets, name) -> List[str]:
     SubDomains = []
-    PreparedScanner = getScanner(targets)
+    PreparedScanner = getScanner(targets, name)
     
     try:
         for event in PreparedScanner.start():
             if type(event) == bbot.core.event.base.DNS_NAME:
                 if 'in-scope' in event.tags:
+                    print(f'found subdomain in scope: {event.data}')
                     SubDomains.append(event.data)
 
         print(f"Found {len(SubDomains)} Subdomains!")
