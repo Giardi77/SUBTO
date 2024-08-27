@@ -31,14 +31,12 @@ if not args.name:
 else:
     ScanName = args.name
 
-def main():
+def main() -> None:
     AuthenticationResult, username = Database.Auth(args.register)
 
     if AuthenticationResult:
         if targets:
-            #SubDomainsWithDups = SubdomainEnum.runScan(targets)
-            #SubDomains = list(set(SubDomainsWithDups))
-            SubDomainsWithDups = ['its-ictpiemonte.it', 'its-ictpiemonte.it', '_wildcard.its-ictpiemonte.it', 'calendario.its-ictpiemonte.it', 'its-ictpiemonte.it', '_wildcard.its-ictpiemonte.it', '_wildcard.its-ictpiemonte.it', '_wildcard.its-ictpiemonte.it', '_wildcard.its-ictpiemonte.it', 'kcf.its-ictpiemonte.it', 'its-ictpiemonte.it', '_caldav._tcp.its-ictpiemonte.it', '_caldavs._tcp.its-ictpiemonte.it', '_carddav._tcp.its-ictpiemonte.it', 'kecert.its-ictpiemonte.it', '_autodiscover._tcp.its-ictpiemonte.it', 'plan.its-ictpiemonte.it', 'cpanel.its-ictpiemonte.it', 'cpanel.its-ictpiemonte.it', '_carddavs._tcp.its-ictpiemonte.it', 'cpanel.its-ictpiemonte.it', 'cpanel.its-ictpiemonte.it', 'candidature.its-ictpiemonte.it', 'candidature.its-ictpiemonte.it', 'controllo-sovrapposizione.its-ictpiemonte.it', 'candidature.its-ictpiemonte.it', 'kecert.its-ictpiemonte.it']
+            SubDomainsWithDups = SubdomainEnum.runScan(targets)
             SubDomains = list(set(SubDomainsWithDups))
             TestedSubs = []
 
