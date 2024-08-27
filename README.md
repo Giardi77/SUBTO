@@ -1,2 +1,0 @@
-# SUBTO
-Subdomain takeover scanner
