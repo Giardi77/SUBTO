@@ -3,17 +3,23 @@
 
 ## Panoramica
 
-**Subto** è un potente strumento progettato per scoprire possibili takeover di sottodomini. Questo strumento offre diverse opzioni per specificare i target, gestire le scansioni e gestire i risultati delle scansioni.
+**Subto**  consente agli utenti di specificare i target direttamente o tramite un file, avviare scansioni, gestire la registrazione degli utenti e gestire i risultati delle scansioni. Lo strumento è particolarmente utile per identificare e mitigare il rischio di takeover di sottodomini.
+
+## Installazione
+
+```bash
+git clone https://github.com/Giardi77/SUBTO.git
+cd SUBTO
+python -m venv subto_venv
+source subto_venv/bin/activate
+pip install -r requirements.txt
+```
 
 ## Utilizzo
 
 ```bash
 Subto [-h] [-t TARGET] [-f FILE] [-r] [-n NAME] [-ls] [-sr SCAN_RESULT]
 ```
-
-## Descrizione
-
-Subto consente agli utenti di specificare i target direttamente o tramite un file, avviare scansioni, gestire la registrazione degli utenti e gestire i risultati delle scansioni. Lo strumento è particolarmente utile per identificare e mitigare il rischio di takeover di sottodomini.
 
 ### Opzioni
 
